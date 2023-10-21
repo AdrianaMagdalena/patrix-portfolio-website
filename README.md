@@ -24,6 +24,7 @@ Notes to self:
 5. Install Font Awesome package - in terminal write: npm install --save @fortawesome/fontawesome-free
 6. Install autoprefixer - in terminal write: npm install postcss-cli autoprefixer --save
 7. Doublecheck if all dependencies are in the package.json file
+8. Install glightbox for displaying youtube video - download source files from https://biati-digital.github.io/glightbox/, unzip and copy dist/css and dist/js folders to your assets
 
 Creating npm script to compile sass to css:
 
