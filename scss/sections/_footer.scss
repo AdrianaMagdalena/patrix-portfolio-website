@@ -59,6 +59,10 @@
       @include media-breakpoint-up(sm) {
         font-size: 1.75rem;
       }
+
+      &:hover {
+        color: $primary;
+      }
     }
   }
 }

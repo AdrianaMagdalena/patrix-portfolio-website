@@ -12264,6 +12264,9 @@ textarea.form-control-lg {
     font-size: 1.75rem;
   }
 }
+.footer-sm a:hover {
+  color: #9926f0;
+}
 
 .company-list {
   display: block;
