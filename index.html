@@ -702,22 +702,40 @@
         </div>
         <!-- filter buttons -->
         <div class="row mt-5 mb-4 g-3 text-center">
-          <div class="col-md-12">
-            <button class="btn btn-outline-primary" type="button">All</button>
-            <button class="btn btn-outline-primary" type="button">
+          <div id="filter-btn-container" class="col-md-12">
+            <button
+              id="btn-all"
+              class="btn btn-outline-primary active"
+              type="button"
+            >
+              All
+            </button>
+            <button
+              id="btn-websites"
+              class="btn btn-outline-primary"
+              type="button"
+            >
               Websites
             </button>
-            <button class="btn btn-outline-primary" type="button">
+            <button
+              id="btn-design"
+              class="btn btn-outline-primary"
+              type="button"
+            >
               Design
             </button>
-            <button class="btn btn-outline-primary" type="button">
+            <button
+              id="btn-mockup"
+              class="btn btn-outline-primary"
+              type="button"
+            >
               Mockup
             </button>
           </div>
         </div>
         <!-- portfolio items  -->
         <div class="row">
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 website-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-1.jpg"
@@ -728,12 +746,12 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 1</h4>
-                  <p>category project</p>
+                  <p>Website project</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 design-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-2.jpg"
@@ -744,12 +762,12 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 2</h4>
-                  <p>category project</p>
+                  <p>Design project</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 mockup-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-3.jpg"
@@ -760,12 +778,12 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 3</h4>
-                  <p>category project</p>
+                  <p>Mockup project</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 design-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-4.jpg"
@@ -776,12 +794,12 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 4</h4>
-                  <p>category project</p>
+                  <p>Design project</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 website-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-5.jpg"
@@ -792,12 +810,12 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 5</h4>
-                  <p>category project</p>
+                  <p>Website project</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 website-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-6.jpg"
@@ -808,12 +826,12 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 6</h4>
-                  <p>category project</p>
+                  <p>Website project</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 website-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-7.jpg"
@@ -824,12 +842,12 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 7</h4>
-                  <p>category project</p>
+                  <p>Website project</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 mockup-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-8.jpg"
@@ -840,12 +858,12 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 8</h4>
-                  <p>category project</p>
+                  <p>Mockup ptoject</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6 design-project">
             <div class="portfolio-box shadow">
               <img
                 src="images/portfolio/portfolio-9.jpg"
@@ -856,7 +874,7 @@
               <div class="portfolio-info">
                 <div class="caption">
                   <h4>project name goes here 9</h4>
-                  <p>category project</p>
+                  <p>Design project</p>
                 </div>
               </div>
             </div>
@@ -873,6 +891,78 @@
         type: "video",
         source: "youtube", //vimeo, youtube or local
         width: 900,
+      });
+
+      // filtering protfolio types with buttons
+      let portfolioButtons = document.querySelector("#filter-btn-container");
+      let buttonsArray = document.querySelectorAll(
+        "#filter-btn-container button"
+      );
+      let allProjectCards = document.querySelectorAll(
+        ".website-project, .design-project, .mockup-project"
+      );
+
+      function showAllProjects() {
+        allProjectCards.forEach((card) => card.classList.remove("d-none"));
+      }
+
+      function showWebsiteProjects() {
+        allProjectCards.forEach((card) => card.classList.remove("d-none"));
+        for (let i = 0; i < allProjectCards.length; i++) {
+          if (!allProjectCards[i].classList.contains("website-project")) {
+            allProjectCards[i].classList.add("d-none");
+          }
+        }
+      }
+
+      function showDesignProjects() {
+        allProjectCards.forEach((card) => card.classList.remove("d-none"));
+        for (let i = 0; i < allProjectCards.length; i++) {
+          if (!allProjectCards[i].classList.contains("design-project")) {
+            allProjectCards[i].classList.add("d-none");
+          }
+        }
+      }
+
+      function showMockupProjects() {
+        allProjectCards.forEach((card) => card.classList.remove("d-none"));
+        for (let i = 0; i < allProjectCards.length; i++) {
+          if (!allProjectCards[i].classList.contains("mockup-project")) {
+            allProjectCards[i].classList.add("d-none");
+          }
+        }
+      }
+
+      portfolioButtons.addEventListener("click", (e) => {
+        let targetButton = e.target;
+
+        function addActiveTagToCurrentButton() {
+          buttonsArray.forEach((button) => button.classList.remove("active"));
+          targetButton.classList.add("active");
+        }
+
+        switch (targetButton.id) {
+          case "btn-all":
+            showAllProjects();
+            addActiveTagToCurrentButton();
+            console.log("Showing All projects");
+            break;
+          case "btn-websites":
+            showWebsiteProjects();
+            addActiveTagToCurrentButton();
+            console.log("Showing only Website projects");
+            break;
+          case "btn-design":
+            showDesignProjects();
+            addActiveTagToCurrentButton();
+            console.log("Showing only Design projects");
+            break;
+          case "btn-mockup":
+            showMockupProjects();
+            addActiveTagToCurrentButton();
+            console.log("Showing only Mockup projects");
+            break;
+        }
       });
     </script>
     <script src="./assets/js/bootstrap.bundle.js"></script>
