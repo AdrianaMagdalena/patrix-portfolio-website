@@ -44,3 +44,21 @@
     }
   }
 }
+
+// style the social media content
+.footer-sm {
+  background-color: #212121;
+
+  a {
+    color: $white;
+
+    i {
+      font-size: 1rem;
+      margin-left: 1rem;
+
+      @include media-breakpoint-up(sm) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
