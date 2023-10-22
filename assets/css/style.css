@@ -12190,4 +12190,20 @@ textarea.form-control-lg {
   font-size: 1.2rem;
 }
 
+.form {
+  padding: 3rem;
+}
+.form button {
+  border: none;
+  color: #fff;
+  font-size: 1.25rem;
+}
+.form button a {
+  text-decoration: none;
+}
+.form button i {
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+}
+
 /*# sourceMappingURL=style.css.map */

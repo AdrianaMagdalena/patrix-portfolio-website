@@ -30,3 +30,23 @@
     }
   }
 }
+
+// FORM CONTENT
+.form {
+  padding: 3rem;
+
+  button {
+    border: none;
+    color: $white;
+    font-size: 1.25rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    i {
+      margin-left: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+}
